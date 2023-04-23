@@ -1,0 +1,76 @@
+body {
+    padding: 30px;
+    background-image :  url('../images/img04.jpg');
+    background-repeat: repeat;
+    font-family: 'Tahoma';
+    font-size: 10pt;
+    line-height: 35px;   
+}
+
+h1, h2, h3 {
+    font-family:'Nova Mono', cursive;
+}
+
+.header {
+    padding: 30px;
+    text-align: left;
+    background: transparent;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+    float: left;
+    width: 70%;
+    padding:20px;
+}
+
+/* Right column */
+.rightcolumn {
+    float: right;
+    width: 25%;
+    padding-left: 20px;
+}
+
+/* Category list */
+.category-list-card {
+    background-color: transparent;
+    border:none;
+    padding: 20px;
+    margin-top: 20px;    
+}
+
+.category-list {
+    list-style: none;
+    padding-left:15px;
+}
+
+.category-list li {
+    list-style-image: url('../images/img01.jpg');
+}
+
+.category-list li a {
+    color: black;
+    display: block;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.category-list li:hover {
+    color: black;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+

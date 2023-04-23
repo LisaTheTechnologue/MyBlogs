@@ -1,0 +1,39 @@
+.category-style{
+    color:green;
+    font-weight: bold;
+    font-size: 15pt;
+    margin-top: 20px;
+}
+
+.post-details {
+    border-top: 1px solid;
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.post-title {
+    font-size: 30pt;
+    font-family:'Nova Mono', cursive;
+}
+
+.post-created-at{
+    font-style: italic;
+    font-size: 8pt;
+}
+
+.post-content-box {
+    margin-top: 25px;
+    display: inline-block;
+    text-align: justify;     
+}
+
+.post-img {
+    float: left;
+    margin-right: 25px;
+    border: 5px solid rgba(0,0,0,0.1);
+}
+
+.post-content {
+    white-space: pre-line;
+}

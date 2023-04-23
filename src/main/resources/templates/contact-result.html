@@ -1,0 +1,52 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(  
+      ~{::title},
+      ~{:: #contact-result-static-resources},
+      ~{:: #contact-result-nav},
+      ~{:: #contact-result-main-content},  
+      ~{:: #contact-result-footer}
+      )}">
+    <head>
+        <title>Contact</title>
+        <th:block id="contact-result-static-resources">       
+            <link rel="stylesheet" type="text/css" href="../../static/css/contact.css" th:href="@{/css/contact.css}"/>
+        </th:block>
+    </head>
+    <body>
+
+        <div id="contact-result-nav" th:replace="~{/fragments/app-fragments :: nav-default}">
+            Contact Nav
+        </div>
+        <div id="contact-result-main-content" th:switch="${isSuccess}">
+            <div th:case="false">Error saving your message. Please try again later!</div>
+            <div th:case="*">              
+
+                <div class="contact-box" >
+                    <p>Thank you for your message</p>
+                    <div class="row">
+                        <div class="col-3 col-form-label text-right font-weight-bold">Name</div>
+                        <div class="col-9"><p th:text="${contact.contactName}"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 col-form-label text-right font-weight-bold">Email</div>
+                        <div class="col-9"><p th:text="${contact.contactEmail}"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 col-form-label text-right font-weight-bold">Phone</div>
+                        <div class="col-9"><p th:text="${contact.contactPhone}"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 col-form-label text-right font-weight-bold">Company</div>
+                        <div class="col-9"><p th:text="${contact.contactCompany}"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 col-form-label text-right font-weight-bold">Message</div>
+                        <div class="col-9"><p th:text="${contact.message}"/></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(  
+      ~{::title},
+      ~{:: #post-create-static-resources},
+      ~{:: #post-create-nav},
+      ~{:: #post-create-main-content},  
+      ~{:: #post-create-footer}
+      )}">
+    <head>
+        <title>Post</title>
+        <th:block id="post-create-static-resources">
+            <link rel="stylesheet" type="text/css" href="../../static/css/post-style.css" th:href="@{/css/post-style.css}"/>
+        </th:block>
+    </head>
+    <body >
+
+        <div id="post-create-nav" th:replace="~{/fragments/app-fragments :: nav-default}">
+            Home Nav
+        </div>
+
+        <!-- Blog main content -->
+        <div id="post-create-main-content">
+            <div class="post-create-box">
+                <div class="post-create-title">All * fields are required</div>
+                <form class="post-create-form" action="#" th:action="@{/save}" th:object="${post}" method="post">
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-right font-weight-bold" for="name">Title*:</label>
+                        <div class="col-9">  
+                            <input type="text" class="form-control" name="title" th:field="*{title}" id="title" required="required"/>
+                        </div></div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-right font-weight-bold" for="imageUrl">Image URL:</label>
+                        <div class="col-9">  
+                            <input type="text" class="form-control" name="imageUrl" th:field="*{imageUrl}" id="imageUrl"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-right font-weight-bold" for="category">Category*:</label>
+                        <div class="col-9">  
+                            <select class="form-control" id="categoriesddl" name="categoriesddl" th:field="*{category}" required="required">
+                                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.categoryName}"/>
+                            </select>
+                        </div></div>                
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-right font-weight-bold" for="content">Content:</label>
+                        <div class="col-9">  
+                            <textarea class="form-control" name="content" cols="60" rows="3" th:field="*{content}" id="content"></textarea>
+                        </div></div>
+                    <div class="form-group row">
+                        <div class="col-auto mr-auto"></div>
+                        <div class="col-auto">  
+                            <button type="submit" class="contact-btn mr-0 ml-auto" >Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>         
+
+        <div id="post-footer" th:replace="~{/fragments/app-fragments :: latest-blog}">
+            Footer
+        </div>
+
+    </body>
+
+</html>

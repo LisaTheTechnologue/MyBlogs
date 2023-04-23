@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(  
+                                        ~{::title},
+                                        ~{:: #post-static-resources},
+                                        ~{:: #post-nav},
+                                        ~{:: #post-main-content},  
+                                        ~{:: #post-footer}
+                                        )}">
+    <head>
+        <title>Post</title>
+        <th:block id="post-static-resources">
+            <link rel="stylesheet" type="text/css" th:href="@{/css/post-style.css}" href="../../static/css/post-style.css"/>
+        </th:block>
+    </head>
+    <body >
+
+        <div id="post-nav" th:replace="~{/fragments/app-fragments :: nav-default}">
+            Home Nav
+        </div>
+
+        <!-- Blog main content -->
+        <div id="post-main-content" th:switch="${isSuccess}">
+            <div th:case="false">Error saving your blog. Please try again later!</div>
+            <div th:case="*">
+                <div><a class="category-title" th:href="@{/category/{id}(id=${post.category.id})}">Category <span th:text="${post.category.categoryName}"/> - <i>Full Category</i></a></div>
+                <div class="post-details">         
+                    <div class="post-title" th:text="${post.title}"/>
+                    <div><a class="post-created-at" th:href="@{/post/{id}(id=${post.id})}">Posted on <span th:text="${#dates.format(post.createdAt, 'MMMM dd, yyyy')}"/> - <i>Full Article</i></a></div>
+                    <div class="post-content-box">
+                        <img class="post-img" th:if="${post.imageUrl}" th:src="@{|/${post.imageUrl}|}" alt="image unknown"/>
+                        <span class="post-content" th:text="${post.content}"/>
+                    </div>
+                </div>
+            </div>
+        </div>         
+
+        <div id="post-footer" th:replace="~{/fragments/app-fragments :: latest-posts}">
+            Footer
+        </div>
+
+    </body>
+
+</html>

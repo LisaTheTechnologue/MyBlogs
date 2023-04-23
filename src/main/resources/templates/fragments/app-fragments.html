@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>App Fragments</title>
+    </head>
+    <body>
+        <!-- Default Navigator -->
+        <ul th:fragment = "nav-default">
+            <li th:classappend="${#request.getRequestURI() == '/' ? 'active' : ''}" >
+                <a th:href="@{/}">
+                    Home 
+                </a> </li>
+            <li th:classappend="${#request.getRequestURI() == '/contact' ? 'active' : ''}" >
+                <a th:href="@{/contact/create}">Contact
+                </a></li>
+            <li th:classappend="${#request.getRequestURI() == '/create-post' ? 'active' : ''}" >
+                <a th:href="@{/post/create}">Create Post
+                </a></li>
+        </ul>
+
+        <!-- Admin Navigator -->
+        <ul th:fragment = "nav-admin">
+            <li><a th:href="@{/admin/products}">Product Management</a></li>
+            <li><a th:href="@{/admin/orders}">Order Management</a></li>
+        </ul>        
+
+        <!-- Footer -->
+        <div th:fragment="latest-posts" class="blog-footer">
+            <hr/>
+            <ul class="blog-list" >
+                <li th:each="post : ${latestPosts}" >
+                    <b><a th:text="${post.title}" th:href="@{'/post/' + ${post.id}}"></a></b> <i>Posted on <span th:text="${#dates.format(post.createdAt, 'MMMM dd, yyyy')}"/></i>
+                </li>
+            </ul>
+        </div>
+
+    </body>
+</html>

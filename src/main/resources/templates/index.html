@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(  
+      ~{::title},
+      ~{:: #home-static-resources},
+      ~{:: #home-nav},
+      ~{:: #home-main-content},  
+      ~{:: #home-footer}
+      )}">
+    <head>
+        <title>Home</title>
+        <th:block id="home-static-resources">
+            <link rel="stylesheet" type="text/css" th:href="@{/css/post-style.css}" href="../../static/css/post-style.css"/>
+        </th:block>
+    </head>
+    <body >
+
+        <div id="home-nav" th:replace="~{/fragments/app-fragments :: nav-default}">
+            Home Nav
+        </div>       
+
+        <!-- Blog main content -->
+        <div id="home-main-content">
+            <div><a class="category-title" th:href="@{/category/{id}(id=${post.category.id})}">Category <span th:text="${post.category.categoryName}"/> - <i>Full Category</i></a></div>
+            <div >            
+                <div class="post-title" th:text="${post.title}"/>
+                <div><a class="post-created-at" th:href="@{/post/{id}(id=${post.id})}">Posted on <span th:text="${#dates.format(post.createdAt, 'MMMM dd, yyyy')}"/> - <i>Full Article</i></a></div>
+                <div class="post-content-box">
+                    <img class="post-img" th:if="${post.imageUrl}" th:src="@{|/${post.imageUrl}|}" alt="image unknown"/>
+                    <span class="post-content" th:text="${post.content}"/>
+                </div>
+            </div>
+        </div>             
+
+        <div id="home-footer" th:replace="~{/fragments/app-fragments :: latest-posts}">
+            Footer
+        </div>
+
+    </body>
+
+</html>

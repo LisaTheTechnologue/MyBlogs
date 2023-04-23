@@ -1,0 +1,30 @@
+.contact-box {
+    margin: 50px auto;    
+    padding: 20px;
+    width:75%;
+    border: 2px dashed rgba(211,211,211, .3);
+    background-clip: padding-box;
+    align-content: center;
+}
+
+.contact-box > .contact-title{
+    position:absolute;
+    background-color: brown;
+    color: white;
+    padding: 1px;
+    margin-top: -40px;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+}
+
+.contact-form {
+    padding: 20px;
+}
+
+.contact-btn{
+    background: url(../images/contact_bt.gif) no-repeat 100%; 
+    border: none; 
+    width:60px;
+    color: white;
+}

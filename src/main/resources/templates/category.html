@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(  
+      ~{::title},
+      ~{:: #category-static-resources},
+      ~{:: #category-nav},
+      ~{:: #category-main-content},  
+      ~{:: #category-footer}
+      )}">
+    <head>
+        <title>Category</title>
+        <th:block id="contact-result-static-resources">            
+        </th:block>
+    </head>
+    <body>
+        <div id="category-nav" th:replace="~{/fragments/app-fragments :: nav-default}">
+            Category Nav
+        </div>  
+        <!-- Blog main content -->
+        <div id="category-main-content">
+            <ul th:each="category : ${categories}">
+                <li><a th:text="${category.categoryName}" th:href="@{'/show/' + ${category.id}}"></a></li>
+            </ul>
+        </div>
+        
+        <div id="category-footer" th:replace="~{/fragments/app-fragments :: latest-blog}">
+            Footer
+        </div>
+    </body>
+</html>

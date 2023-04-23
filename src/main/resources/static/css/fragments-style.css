@@ -1,0 +1,21 @@
+.blog-footer {
+    width: 70%;
+}
+
+.blog-footer hr {
+    border-top-color: rgba(0,0,0,0.3) ;
+}
+
+.blog-list {
+    padding-left:15px;
+}
+
+.blog-list li a {
+    color: black;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.blog-list li:hover {
+    color: black;
+}

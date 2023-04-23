@@ -1,0 +1,64 @@
+.category-title{
+    color:green;
+    font-style: italic;
+    font-size: 8pt;
+}
+
+.post-title {
+    font-size: 30pt;
+    font-family:'Nova Mono', cursive;
+}
+
+.post-created-at{
+    font-style: italic;
+    font-size: 8pt;
+    color: black;
+}
+
+.post-content-box {
+    margin-top: 25px;
+    display: inline-block;
+    text-align: justify;     
+}
+
+.post-img {
+    float: left;
+    margin-right: 25px;
+    border: 5px solid rgba(0,0,0,0.1);
+}
+
+.post-content {
+    white-space: pre-line;
+}
+
+/* post create page */
+.post-create-box {
+    margin: 50px auto;    
+    padding: 20px;
+    width:85%;
+    border: 2px dashed rgba(211,211,211, .3);
+    background-clip: padding-box;
+    align-content: center;
+}
+
+.post-create-box > .post-create-title{
+    position:absolute;
+    background-color: brown;
+    color: white;
+    padding: 1px;
+    margin-top: -40px;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+}
+
+.post-create-form {
+    padding: 20px;
+}
+
+.contact-btn{
+    background: url(../images/contact_bt.gif) no-repeat 100%; 
+    border: none; 
+    width:60px;
+    color: white;
+}

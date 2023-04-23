@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(  
+      ~{::title},
+      ~{:: #contact-static-resources},
+      ~{:: #contact-nav},
+      ~{:: #contact-main-content},  
+      ~{:: #contact-footer}
+      )}">
+    <head>
+        <title>Contact</title>
+        <th:block id="contact-static-resources">            
+            <link rel="stylesheet" type="text/css" href="../../static/css/contact.css" th:href="@{/css/contact.css}"/>
+        </th:block>
+    </head>
+    <body>
+
+        <div id="contact-nav" th:replace="~{/fragments/app-fragments :: nav-default}">
+            Contact Nav
+        </div>
+
+        <div id="contact-main-content" >
+            <div class="contact-box">
+                <div class="contact-title">All fields are required</div>
+
+                <form class="contact-form" action="#" th:action="@{/contact}" th:object="${contact}" method="post">
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-right font-weight-bold" for="name">Name:</label>
+                        <div class="col-9">  
+                            <input type="text" class="form-control" name="contactName" th:field="*{contactName}" id="name"/>
+                        </div></div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-right font-weight-bold" for="email">Email:</label>
+                        <div class="col-9">  
+                            <input type="email" class="form-control" name="contactEmail" th:field="*{contactEmail}" id="email"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-right font-weight-bold" for="phone">Phone:</label>
+                        <div class="col-9">  
+                            <input type="text" class="form-control" name="contactPhone" th:field="*{contactPhone}" id="phone"/>
+                        </div></div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-right font-weight-bold" for="phone">Company:</label>
+                        <div class="col-9">  
+                            <input type="text" class="form-control" name="contactCompany" th:field="*{contactCompany}" id="company"/>
+                        </div></div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-right font-weight-bold" for="contactMessage">Message:</label>
+                        <div class="col-9">  
+                            <textarea class="form-control" name="message" cols="60" rows="3" th:field="*{message}" id="message"></textarea>
+                        </div></div>
+                    <div class="form-group row">
+                        <div class="col-auto mr-auto"></div>
+                        <div class="col-auto">  
+                            <button type="submit" class="contact-btn mr-0 ml-auto" >Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="contact-footer" >
+        </div>
+    </body>
+</html>
