@@ -27,7 +27,7 @@
                 <div class="post-create-title">All * fields are required</div>
                 <form class="post-create-form" action="#" th:action="@{/save}" th:object="${post}" method="post">
                     <div class="form-group row">
-                        <label class="col-3 col-form-label text-right font-weight-bold" for="name">Title*:</label>
+                        <label class="col-3 col-form-label text-right font-weight-bold" for="title">Title*:</label>
                         <div class="col-9">  
                             <input type="text" class="form-control" name="title" th:field="*{title}" id="title" required="required"/>
                         </div></div>
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-3 col-form-label text-right font-weight-bold" for="category">Category*:</label>
+                        <label class="col-3 col-form-label text-right font-weight-bold" for="categoriesddl">Category*:</label>
                         <div class="col-9">  
                             <select class="form-control" id="categoriesddl" name="categoriesddl" th:field="*{category}" required="required">
                                 <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.categoryName}"/>
